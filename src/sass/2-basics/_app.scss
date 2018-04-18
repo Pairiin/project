@@ -1,0 +1,34 @@
+// Page common styles
+
+::selection {
+	color: $white;
+	background-color: darken($primary-color,10%);
+}
+
+.app {
+	&.sidenav-closed {
+		.app-content { margin-left: 0; }
+		.app-sidebar { left: -$sidebar-width; }
+		.app-sidebar__overlay { visibility: hidden; }
+	}
+	@media(max-width: 768px) { overflow-x: hidden; }
+}
+
+.app-content {
+	min-height: calc(100vh - 50px);
+	margin-top: 50px;
+	padding: 30px;
+	background-color: #E5E5E5;
+	transition: margin-left 0.3s ease;
+	@media(min-width: 768px) { margin-left: $sidebar-width; }
+	@media(max-width: 768px) {
+		margin-top: 50px;
+		min-width: 100%;
+	}
+	@media(max-width: 480px) { padding: 15px; }
+	@media print {
+		margin: 0;
+		padding: 0;
+		background-color: #fff;
+	}
+}
